@@ -13,12 +13,18 @@ using namespace std;
 struct Country {
   string name;
   int population;
+  int area;
+  double popDensity;
+  double netMigration;
+  int GDP;
+  double literacy;
+  double birthRate;
 };
 
 int main() {
 
 
-  vector<Country> countryList(227);
+  vector<Country> countryList(228);
   int count(0);
 
       ifstream fin("countries.csv");
@@ -33,24 +39,57 @@ int main() {
 
           string name;
           string sPopulation;
+          string sArea;
+          string sPopDensity;
+          string sNetMigration;
+          string sGDP;
+          string sLiteracy;
+          string sBirthRate;
           int population;
+          int area;
+          double popDensity;
+          double netMigration;
+          int GDP;
+          double literacy;
+          double birthRate;
+
+          // Parsing data | from countries.csv
+          //              v
 
           getline(parser, name,',');
 
-          getline(parser, sPopulation);
+          getline(parser, sPopulation, ',');
           population = stoi(sPopulation);
 
-          Country c = {name, population};
+          getline(parser, sArea, ',');
+          area = stoi(sArea);
 
-          countryList[count] = c;
+          getline(parser, sPopDensity, ','),
+          popDensity = stod(sPopDensity);
 
-          cout << countryList[count].name << " " << countryList[count].population << endl;
+          getline(parser, sNetMigration, ',');
+          netMigration = stod(sNetMigration);
+
+          getline(parser, sGDP, ',');
+          GDP = stoi(sGDP);
+
+          getline(parser, sLiteracy, ',');
+          literacy = stod(sLiteracy);
+
+          getline(parser, sBirthRate);
+          birthRate = stod(sBirthRate);
+
+
+          Country c = {name, population, area, popDensity, netMigration, GDP, literacy, birthRate}; // storing data in struct
+
+          countryList[count] = c; // storing struct into vector
+
+          cout << count << ".) " <<"Name: " << countryList[count].name << " Population: " << countryList[count].population << " Area: " << countryList[count].area << " Pop. Density: " << countryList[count].popDensity << " Net Migration: " << countryList[count].netMigration << " GDP: " << countryList[count].GDP << " Literacy: " << countryList[count].literacy << " Birthrate: " << countryList[count].birthRate <<  endl;
         
         }
         count++;
         }
           fin.close();
-
         } else {
           cout << "Unable to open countries.csv";
         }
