@@ -15,3 +15,5 @@ using namespace std;
 void dataViewer();
 
 void clearScreen();
+
+void sortingOptions();

@@ -90,7 +90,7 @@ int main() {
           // cout << count << ".) " <<"Name: " << countryList[count].name << " Population: " << countryList[count].population << " Area: " << countryList[count].area << " Pop. Density: " << countryList[count].popDensity << " Net Migration: " << countryList[count].netMigration << " GDP: " << countryList[count].GDP << " Literacy: " << countryList[count].literacy << " Birthrate: " << countryList[count].birthRate <<  endl;
         
         }
-        count++;
+        count++; // count +1 to increment which part of the vector the data is stored in then loop.
         }
           fin.close();
         } else {
