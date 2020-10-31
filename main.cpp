@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 using std::cout;
 using std::endl;
 using std::ifstream;
