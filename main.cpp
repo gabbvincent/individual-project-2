@@ -1,3 +1,5 @@
+#include "functions.h"
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -9,6 +11,7 @@ using std::ifstream;
 using std::istringstream;
 using std::string;
 using namespace std;
+
 
 struct Country {
   string name;
@@ -84,7 +87,7 @@ int main() {
 
           countryList[count] = c; // storing struct into vector
 
-          cout << count << ".) " <<"Name: " << countryList[count].name << " Population: " << countryList[count].population << " Area: " << countryList[count].area << " Pop. Density: " << countryList[count].popDensity << " Net Migration: " << countryList[count].netMigration << " GDP: " << countryList[count].GDP << " Literacy: " << countryList[count].literacy << " Birthrate: " << countryList[count].birthRate <<  endl;
+          // cout << count << ".) " <<"Name: " << countryList[count].name << " Population: " << countryList[count].population << " Area: " << countryList[count].area << " Pop. Density: " << countryList[count].popDensity << " Net Migration: " << countryList[count].netMigration << " GDP: " << countryList[count].GDP << " Literacy: " << countryList[count].literacy << " Birthrate: " << countryList[count].birthRate <<  endl;
         
         }
         count++;
@@ -93,5 +96,6 @@ int main() {
         } else {
           cout << "Unable to open countries.csv";
         }
+         dataViewer();
        }
       
