@@ -114,15 +114,13 @@ bool sortByLeastBirthRate(const Country& x, const Country& y) {
 
 int main() {
 
-    const int name_width = 15 ;
-    const int int_width = 7 ;
-    const int dbl_width = 12 ;
-    const int num_flds = 7 ;
-    const std::string sep = " |" ;
-    const int total_width = name_width*2 + int_width*2 + dbl_width*3 + sep.size() * num_flds ;
-    const std::string line = sep + std::string( total_width-1, '-' ) + '|' ;
-
-
+  const int name_width = 15 ;
+  const int int_width = 7 ;
+  const int dbl_width = 12 ;
+  const int num_flds = 7 ;
+  const std::string sep = " |" ;
+  const int total_width = name_width*2 + int_width*2 + dbl_width*3 + sep.size() * num_flds ;
+  const std::string line = sep + std::string( total_width-1, '-' ) + '|' ;
 
   vector<Country> countryList(228);
 
@@ -187,7 +185,7 @@ int main() {
 
           countryList[count] = c; //storing struct into vector
 
-          cout << count << ".) " <<"Name: " << countryList[count].name << " Population: " << countryList[count].population << " Area: " << countryList[count].area << " Pop. Density: " << countryList[count].popDensity << " Net Migration: " << countryList[count].netMigration << " GDP: " << countryList[count].GDP << " Literacy: " << countryList[count].literacy << " Birthrate: " << countryList[count].birthRate <<  endl;
+          //cout << count << ".) " <<"Name: " << countryList[count].name << " Population: " << countryList[count].population << " Area: " << countryList[count].area << " Pop. Density: " << countryList[count].popDensity << " Net Migration: " << countryList[count].netMigration << " GDP: " << countryList[count].GDP << " Literacy: " << countryList[count].literacy << " Birthrate: " << countryList[count].birthRate <<  endl;
         
         }
         count++; // count +1 to increment which part of the vector the data is stored in then loop.
@@ -230,13 +228,13 @@ int main() {
     int mostOrLeast(0);
 
     if (sortingChoice == 1) { //if sorting choice is 1 sort by population.
-      cout << "How many countries? (1 - ) : ";
+      cout << "How many countries? (1 - 227) : ";
       cin >> howManyCountries;
       cout << "1.) Most Populous, or 2.) Least Populous? : ";
       cin >> mostOrLeast;
       if (mostOrLeast == 1) {
       sort(countryList.begin(), countryList.end(), sortByMostPopulous);
-      cout << "(Viewing countries by MOST populous";
+      cout << "(Viewing countries by MOST populous)\n\n";
       header();
       for (int i = 0; i <= howManyCountries -1; i ++) {
         
@@ -250,6 +248,7 @@ int main() {
         } 
       } else if (mostOrLeast == 2) {
         sort(countryList.begin(), countryList.end(), sortByLeastPopulous);
+         cout << "(Viewing countries by LEAST populous)\n\n";
         header();
         for (int i = 0; i <= howManyCountries -1; i ++) {
         printItemList(countryList[i]);
@@ -264,24 +263,36 @@ int main() {
       }
 
     } else if (sortingChoice == 2) { //if sorting choice is 2 sort by area.
-      cout << "How many countries? (1 - 10)" << endl;
+      cout << "How many countries? (1 - 227) : ";
       cin >> howManyCountries;
-      cout << "1.) Most Area, or 2.) Least Area?" << endl;
+      cout << "1.) Most Populous, or 2.) Least Populous? : ";
       cin >> mostOrLeast;
       if (mostOrLeast == 1) {
       sort(countryList.begin(), countryList.end(), sortByMostArea);
+       cout << "(Viewing countries by MOST area)\n\n";
       header();
       for (int i = 0; i <= howManyCountries -1; i ++) {
         printItemList(countryList[i]);
-        
         }
+        // clears screen when user presses the enter key
+        cout << "\n - Press the ENTER key to continue - ";
+        cin.get();
+        if (cin.get() == '\n') {
+        clearScreen();
+        } 
       } else if (mostOrLeast == 2) {
         sort(countryList.begin(), countryList.end(), sortByLeastArea);
+         cout << "(Viewing countries by LEAST area)\n\n";
         header();
         for (int i = 0; i <= howManyCountries -1; i ++) {
         printItemList(countryList[i]);
-        
         }
+        // clears screen when user presses the enter key
+        cout << "\n - Press the ENTER key to continue - ";
+        cin.get();
+        if (cin.get() == '\n') {
+        clearScreen();
+        } 
       }
       
     } else if (sortingChoice == 3) { //if sorting choice is 3 sort by pop. density.
